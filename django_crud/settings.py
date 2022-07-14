@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-7)d6s^5f&2aow*%+*!xi_2i%9j3wjr-iho-+d_4s1b5gw7%m(u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -186,4 +186,6 @@ SIMPLE_JWT = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "https://djangoapi-crud.herokuapp.com/"
+    
 ]
