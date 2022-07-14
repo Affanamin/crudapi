@@ -22,7 +22,7 @@ def testapi(request):
 
 @csrf_exempt
 @api_view(['GET'])
-# @permission_classes((IsAuthenticated,))
+@permission_classes((IsAuthenticated,))
 def getNotes(request):
     userLoggedIn = request.user
     print(userLoggedIn.id)
@@ -58,3 +58,31 @@ def createNote(request):
     except:
         return Response({"message": "Something Went Wrong"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+
+
+@csrf_exempt
+@api_view(['PUT'])
+@permission_classes((IsAuthenticated,))
+def editNote(request,noteId):
+    getRecord = Task.objects.get(id=noteId)
+    dataFromReq = request.data
+    try:
+        serializer = TaskSerializer(instance=getRecord, data=dataFromReq)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+    except:
+        return Response({"message": "Something Went Wrong"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+@csrf_exempt
+@api_view(['DELETE'])
+@permission_classes((IsAuthenticated,))
+def editNote(request,noteId):
+    getRecord = Task.objects.get(id=noteId)
+    
+    try:
+        getRecord.delete()
+        return Response("Record Deleted", status=status.HTTP_200_OK)
+    except:
+        return Response({"message": "Something Went Wrong"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
