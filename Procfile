@@ -1,1 +1,1 @@
-web: gunicorn crud_notes_api.wsgi --log-file -
+web: gunicorn django_crud.wsgi --log-file -
