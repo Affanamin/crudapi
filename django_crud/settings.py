@@ -98,22 +98,22 @@ WSGI_APPLICATION = 'django_crud.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'test',
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'djongo',
-#          'NAME': 'djangotest',
-#          'CLIENT': {
-#             'host': 'mongodb+srv://root:root@cluster0.vanwk.mongodb.net/djangotest?retryWrites=true&w=majority'
-#         },
+#         'NAME': 'test',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+         'NAME': 'djangotest',
+         'CLIENT': {
+            'host': 'mongodb+srv://root:root@cluster0.vanwk.mongodb.net/djangotest?retryWrites=true&w=majority'
+        },
+    }
+}
 
 REST_FRAMEWORK = {
 
