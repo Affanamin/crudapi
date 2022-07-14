@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -97,22 +98,22 @@ WSGI_APPLICATION = 'django_crud.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'djongo',
-#         'NAME': 'test',
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-         'NAME': 'djangotest',
-         'CLIENT': {
-            'host': 'mongodb+srv://root:root@cluster0.vanwk.mongodb.net/djangotest?retryWrites=true&w=majority'
-        },
+        'NAME': 'test',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#          'NAME': 'djangotest',
+#          'CLIENT': {
+#             'host': 'mongodb+srv://root:root@cluster0.vanwk.mongodb.net/djangotest?retryWrites=true&w=majority'
+#         },
+#     }
+# }
 
 REST_FRAMEWORK = {
 
@@ -196,6 +197,6 @@ SIMPLE_JWT = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "https://djangoapi-crud.herokuapp.com/"
+    "https://djangoapi-crud.herokuapp.com",
     
 ]

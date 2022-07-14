@@ -15,6 +15,8 @@ from rest_framework.decorators import api_view, permission_classes
 
 # Create your views here.
 
+def testapi(request):
+    return Response("Its Working Good", status=status.HTTP_200_OK)
 
 @csrf_exempt
 @api_view(['GET'])
