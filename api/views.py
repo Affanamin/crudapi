@@ -70,7 +70,8 @@ def editNote(request,noteId):
         serializer = TaskSerializer(instance=getRecord, data=dataFromReq)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
+            return JsonResponse("Edited Successfully",safe=False,status=status.HTTP_201_CREATED )
+            ##return Response(serializer.data, status=status.HTTP_200_OK)
     except:
         return Response({"message": "Something Went Wrong"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
@@ -78,7 +79,7 @@ def editNote(request,noteId):
 @csrf_exempt
 @api_view(['DELETE'])
 @permission_classes((IsAuthenticated,))
-def editNote(request,noteId):
+def deleteNote(request,noteId):
     getRecord = Task.objects.get(id=noteId)
     
     try:

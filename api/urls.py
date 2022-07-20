@@ -8,8 +8,8 @@ from . import views
 urlpatterns = [
     path('getnotes/', views.getNotes, name='getNotes'),
     path('createnote/', views.createNote, name='createNote'),
-    path('test/', views.testapi, name='testapi'),
-    #path('editnote/<str:noteId>', views.editNote, name='editNote'),
-    #path('delnote/<str:noteId>', views.editNote, name='editNote'),
+    ###################################################################
+    path('editnote/<str:noteId>', views.editNote, name='editNote'),
+    path('delnote/<str:noteId>', views.deleteNote, name='deleteNote'),
 
 ]
